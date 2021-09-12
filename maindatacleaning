@@ -1,0 +1,103 @@
+# Module Imports
+import pandas as pd
+import csv
+from matplotlib import pyplot as plt
+from collections import Counter
+
+
+# Settings / Options
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.max_rows', 50)
+
+%matplotlib inline
+plt.style.use('fivethirtyeight')
+#plt.legend() if you want a legend
+
+
+# Reading in Files
+df_2021 = pd.read_csv('survey_results_public_2021.csv', index_col='ResponseId')
+df_2020 = pd.read_csv('survey_results_public_2020.csv', index_col='Respondent')
+df_2019 = pd.read_csv('survey_results_public_2019.csv', index_col='Respondent')
+
+
+#Setting up our main data frames
+sexidentity_res_2021 = df_2021[['Sexuality']].fillna('No response')
+sexidentity_res_2020 = df_2020[['Sexuality']].fillna('No response')
+sexidentity_res_2019 = df_2019[['Sexuality']].fillna('No response')
+
+
+# Exporting the data we care about. Quicker for me to import with pd read, then grab what I need instead of editing
+# an entire dataframe.
+sexidentity_res_2021.to_csv('sexidentity_res_2021.csv')
+sexidentity_res_2020.to_csv('sexidentity_res_2020.csv')
+sexidentity_res_2019.to_csv('sexidentity_res_2019.csv')
+
+
+# 2021 Graph
+with open('sexidentity_res_2021.csv') as csv_2021:
+    csv_reader_2021 = csv.DictReader(csv_2021)
+    
+    sexuality_counter_2021 = Counter()
+    
+    for row in csv_reader_2021 :
+        sexuality_counter_2021.update(row['Sexuality'].split(';'))
+
+sexuality_2021 = []
+results_2021 = []
+
+for item in sexuality_counter_2021.most_common(20) :
+    sexuality_2021.append(item[0])
+    results_2021.append(item[1])
+
+plt.title('From Survey: Sexuality of Stack Overflow Developers 2021')
+plt.xlabel('Respondents')
+plt.ylabel('Sexuality')
+plt.barh(sexuality_2021, results_2021)
+
+
+# 2020 Graph
+with open('sexidentity_res_2020.csv') as csv_2020:
+    csv_reader_2020 = csv.DictReader(csv_2020)
+    
+    sexuality_counter_2020 = Counter()
+    
+    for row in csv_reader_2020 :
+        sexuality_counter_2020.update(row['Sexuality'].split(';'))
+
+sexuality_2020 = []
+results_2020 = []
+
+for item in sexuality_counter_2020.most_common(20) :
+    sexuality_2020.append(item[0])
+    results_2020.append(item[1])
+    
+plt.title('From Survey: Sexuality of Stack Overflow Developers 2020')
+plt.xlabel('Number of Users')
+plt.ylabel('Respondents')
+plt.barh(sexuality_2020, results_2020)
+
+
+# 2019 Graph
+with open('sexidentity_res_2019.csv') as csv_2019:
+    csv_reader_2019 = csv.DictReader(csv_2019)
+    
+    sexuality_counter_2019 = Counter()
+    
+    for row in csv_reader_2019 :
+        sexuality_counter_2019.update(row['Sexuality'].split(';'))
+
+sexuality_2019 = []
+results_2019 = []
+
+for item in sexuality_counter_2019.most_common(20) :
+    sexuality_2019.append(item[0])
+    results_2019.append(item[1])
+    
+plt.title('From Survey: Sexuality of Stack Overflow Developers 2019')
+plt.xlabel('Number of Users')
+plt.ylabel('Respondents')
+plt.barh(sexuality_2019, results_2019)
+
+# df_2021
+# df_2020
+# df_2019
