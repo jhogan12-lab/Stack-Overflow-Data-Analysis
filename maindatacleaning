@@ -48,6 +48,9 @@ results_2021 = []
 for item in sexuality_counter_2021.most_common(20) :
     sexuality_2021.append(item[0])
     results_2021.append(item[1])
+    
+sexuality_2021.reverse()
+results_2021.reverse()
 
 plt.title('From Survey: Sexuality of Stack Overflow Developers 2021')
 plt.xlabel('Respondents')
@@ -70,7 +73,10 @@ results_2020 = []
 for item in sexuality_counter_2020.most_common(20) :
     sexuality_2020.append(item[0])
     results_2020.append(item[1])
-    
+
+sexuality_2020.reverse()
+results_2020.reverse()
+
 plt.title('From Survey: Sexuality of Stack Overflow Developers 2020')
 plt.xlabel('Number of Users')
 plt.ylabel('Respondents')
@@ -92,7 +98,10 @@ results_2019 = []
 for item in sexuality_counter_2019.most_common(20) :
     sexuality_2019.append(item[0])
     results_2019.append(item[1])
-    
+
+sexuality_2019.reverse()
+results_2019.reverse()
+
 plt.title('From Survey: Sexuality of Stack Overflow Developers 2019')
 plt.xlabel('Number of Users')
 plt.ylabel('Respondents')
