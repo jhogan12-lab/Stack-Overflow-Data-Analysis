@@ -6,3 +6,5 @@ I utilized a few packages in Python, namely Pandas, CSV, and Collections. You wi
 Please note I am not attempting to make any thesis or conclusion with this data. This was solely for my practice and to become a better programming.
 
 Also note this survey does not encompass all users of Stack Overflow. The survey was also completely anonymous, so no personal identifying information can be extracted from the original data files.
+
+I will continue adding on updated and cleaner/sleeker graphs to this repository. Feel free to use my code in your projects if you find it useful.
