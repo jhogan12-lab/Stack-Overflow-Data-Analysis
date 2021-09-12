@@ -48,14 +48,15 @@ results_2021 = []
 for item in sexuality_counter_2021.most_common(20) :
     sexuality_2021.append(item[0])
     results_2021.append(item[1])
-    
+
 sexuality_2021.reverse()
 results_2021.reverse()
-
-plt.title('From Survey: Sexuality of Stack Overflow Developers 2021')
-plt.xlabel('Respondents')
-plt.ylabel('Sexuality')
-plt.barh(sexuality_2021, results_2021)
+    
+plt.title('Sexuality of Stack Overflow Developers 2021', color='#134567', fontweight='bold', fontsize=19)
+plt.xlabel('Respondents', color='#134567', fontsize=18)
+plt.ylabel('Sexuality', color='#134567', fontsize=18)
+plt.barh(sexuality_2021, results_2021, color='#134567')
+plt.savefig('Graph2021.png', dpi=200, bbox_inches='tight')
 
 
 # 2020 Graph
@@ -75,12 +76,13 @@ for item in sexuality_counter_2020.most_common(20) :
     results_2020.append(item[1])
 
 sexuality_2020.reverse()
-results_2020.reverse()
-
-plt.title('From Survey: Sexuality of Stack Overflow Developers 2020')
-plt.xlabel('Number of Users')
-plt.ylabel('Respondents')
-plt.barh(sexuality_2020, results_2020)
+results_2020.reverse()    
+    
+plt.title('Sexuality of Stack Overflow Developers 2020', color='#134567', fontweight='bold', fontsize=19)
+plt.xlabel('Respondents', color='#134567', fontsize=18)
+plt.ylabel('Sexuality', color='#134567', fontsize=18)
+plt.barh(sexuality_2020, results_2020, color='#134567')
+plt.savefig('Graph2020.png', dpi=200, bbox_inches='tight')
 
 
 # 2019 Graph
@@ -100,12 +102,13 @@ for item in sexuality_counter_2019.most_common(20) :
     results_2019.append(item[1])
 
 sexuality_2019.reverse()
-results_2019.reverse()
-
-plt.title('From Survey: Sexuality of Stack Overflow Developers 2019')
-plt.xlabel('Number of Users')
-plt.ylabel('Respondents')
-plt.barh(sexuality_2019, results_2019)
+results_2019.reverse()    
+    
+plt.title('Sexuality of Stack Overflow Developers 2019', color='#134567', fontweight='bold', fontsize=19)
+plt.xlabel('Respondents', color='#134567', fontsize=18)
+plt.ylabel('Sexuality', color='#134567', fontsize=18)
+plt.barh(sexuality_2019, results_2019, color='#134567')
+plt.savefig('Graph2019.png', dpi=200, bbox_inches='tight')
 
 # df_2021
 # df_2020
